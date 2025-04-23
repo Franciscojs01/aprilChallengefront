@@ -1,0 +1,112 @@
+.principal {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+header h2 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+header button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e63946;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+header button:hover {
+  background-color: #d62839;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.top-bar input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.top-bar button {
+  padding: 10px 20px;
+  background-color: #457b9d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.top-bar button:hover {
+  background-color: #1d3557;
+}
+
+.lista-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-itens li {
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.lista-itens li button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.lista-itens li button:first-of-type {
+  background-color: #ffb703;
+  color: #333;
+}
+
+.lista-itens li button:first-of-type:hover {
+  background-color: #fca311;
+}
+
+.lista-itens li button:last-of-type {
+  background-color: #e63946;
+  color: white;
+}
+
+.lista-itens li button:last-of-type:hover {
+  background-color: #d62839;
+}
