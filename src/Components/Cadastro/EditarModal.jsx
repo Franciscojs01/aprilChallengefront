@@ -14,7 +14,7 @@ const EditarModal = ({ item, onSalvar, onClose }) => {
       return;
     }
 
-    onSalvar(item.id, {
+    onSalvar(item.id_item, {
       nome: nome.trim(),
       quantidade: quantidadeNumerica,
     });

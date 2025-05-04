@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from "./Components/Login";
 import Cadastro from "./Components/Cadastro";
 import Principal from "./Components/Principal";
-import "./styles/App.css"; // Importa o CSS com o background e estilos globais
+import Secao from "./Components/secao";
+import Usuarios from "./Components/Usuarios"; 
+import "./styles/App.css";
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -16,11 +18,30 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro onVoltar={() => window.location.href = "/"} />} />
+
+          <Route
+            path="/secao"
+            element={
+              <PrivateRoute>
+                <Secao />
+              </PrivateRoute>
+            }
+          />
+
           <Route
             path="/principal"
             element={
               <PrivateRoute>
                 <Principal />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/usuarios"
+            element={
+              <PrivateRoute>
+                <Usuarios />
               </PrivateRoute>
             }
           />

@@ -20,7 +20,7 @@ const Login = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.token);
-        navigate("/principal");
+        navigate("/secao");
       } else {
         alert("Credenciais inválidas");
       }

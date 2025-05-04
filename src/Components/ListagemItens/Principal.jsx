@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import EditarModal from "./EditarModal";
 import "./Principal.css";
 
-const Principal = ({ usuario, onLogout }) => {
+const Principal = ({onLogout }) => {
   const [itens, setItens] = useState([]);
   const [filtro, setFiltro] = useState("");
   const [modalAberto, setModalAberto] = useState(false);
@@ -46,6 +46,7 @@ const Principal = ({ usuario, onLogout }) => {
       if (response.ok) {
         const novoItem = await response.json();
         setItens([...itens, novoItem]);
+        await fetchItens();
         setModalAberto(false);
       } else {
         alert("Erro ao cadastrar item.");
@@ -73,8 +74,11 @@ const Principal = ({ usuario, onLogout }) => {
 
       if (response.ok) {
         const itemAtualizado = await response.json();
-        setItens(itens.map((item) => (item.id === id ? itemAtualizado : item)));
-        setEditarModalAberto(null);
+        setItens(
+          itens.map((item) => (item.id_item === id ? itemAtualizado : item))
+        );
+        await fetchItens();
+        setEditarModalAberto();
       } else {
         alert("Erro ao editar item.");
       }
@@ -84,13 +88,8 @@ const Principal = ({ usuario, onLogout }) => {
   };
 
   const handleExcluir = async (id) => {
-    if (id == null) {
-      console.error("ID inválido ou indefinido:", id);
-      return;
-    }
-
     try {
-      const response = await fetch(`http://localhost:8080/item/${id}`, {
+      const response = await fetch(`http://localhost:8080/item/delete/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -98,7 +97,7 @@ const Principal = ({ usuario, onLogout }) => {
       });
 
       if (response.ok) {
-        setItens(itens.filter((item) => item.id !== id));
+        setItens(itens.filter((item) => item.id_item !== id));
       } else {
         alert("Erro ao excluir item.");
       }
@@ -114,8 +113,8 @@ const Principal = ({ usuario, onLogout }) => {
   return (
     <div className="principal">
       <header>
-        <h2>Bem-vindo, {usuario}</h2>
-        <button onClick={onLogout}>Logout</button>
+        <h2>Listagem de Itens</h2>
+
       </header>
 
       <div className="top-bar">
@@ -131,18 +130,10 @@ const Principal = ({ usuario, onLogout }) => {
 
       <ul className="lista-itens">
         {itensFiltrados.map((item, index) => (
-          <li key={item.id ?? `item-${index}`}>
+          <li key={item.id_item ?? `item-${index}`}>
             {item.nome} - {item.quantidade}
             <button onClick={() => setEditarModalAberto(item)}>Editar</button>
-            <button
-              onClick={() =>
-                item.id != null
-                  ? handleExcluir(item.id)
-                  : console.warn("ID inválido para exclusão:", item)
-              }
-            >
-              Excluir
-            </button>
+            <button onClick={() => handleExcluir(item.id_item)}>Excluir</button>
           </li>
         ))}
       </ul>
