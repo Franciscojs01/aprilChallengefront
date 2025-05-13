@@ -54,14 +54,7 @@ const Login = () => {
             required
           />
         </div>
-
-        <div className="recall-forget">
-          <label>
-            <input type="checkbox" /> Lembrar de mim
-          </label>
-          <a href="#">Esqueceu a senha?</a>
-        </div>
-
+        
         <button type="submit">Entrar</button>
 
         <div className="signup-link">

@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./Components/Login";
-import Cadastro from "./Components/Cadastro";
-import Principal from "./Components/Principal";
-import Secao from "./Components/secao";
-import Usuarios from "./Components/Usuarios"; 
+import Login from "./Components/Login/Login";
+import Cadastro from "./Components/Cadastro/Cadastro";
+import Principal from "./Components/ListagemItens/Principal";
+import Secao from "./Components/Select/secao";
+import Usuarios from "./Components/ListagemUsuario/Usuarios"; 
 import "./styles/App.css";
 
 const PrivateRoute = ({ children }) => {
