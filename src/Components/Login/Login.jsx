@@ -31,6 +31,7 @@ const Login = () => {
           />
           <FaLock className="icon" />
         </div>
+<<<<<<< HEAD
         <div className="recall-forget">
           <label htmlFor="">
             <input type="checkbox" />
@@ -39,6 +40,17 @@ const Login = () => {
           <a href="#">Esqueceu a senha?</a>
         </div>
         <button>Entrar</button>
+=======
+
+        <div className="recall-forget">
+          <label>
+            <input type="checkbox" /> Lembrar de mim
+          </label>
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+
+        <button type="submit">Entrar</button>
+>>>>>>> parent of d7380d9 (revisando)
 
         <div className="signup-link">
           <p>

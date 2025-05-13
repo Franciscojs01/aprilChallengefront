@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Modal from "../Cadastro/Modal";
-import EditarModal from "../Cadastro/EditarModal";
+import Modal from "./Modal";
+import EditarModal from "./EditarModal";
 import "./Principal.css";
 
 const Principal = ({onLogout }) => {
