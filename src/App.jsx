@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Components/Login";
 import Cadastro from "./Components/Cadastro";
@@ -10,10 +11,15 @@ const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token");
   return token ? children : <Navigate to="/" />;
 };
+=======
+import './styles/App.css';
+import Login from './Components/Login';
+>>>>>>> parent of 10b548f (inicializando)
 
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -47,6 +53,9 @@ function App() {
           />
         </Routes>
       </Router>
+=======
+      <Login />
+>>>>>>> parent of 10b548f (inicializando)
     </div>
   );
 }
